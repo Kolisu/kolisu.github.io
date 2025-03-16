@@ -526,6 +526,19 @@ document.getElementById("download-button").addEventListener("click", function() 
         let cleanEncodedUrl = encodedUrlWithSalt.slice(3, -3); // Удаляем первые и последние 3 символа (соль)
         let decodedUrl = atob(cleanEncodedUrl); // Декодирование Base64
         window.location.href = decodedUrl; // Перенаправление
+        const progressBar = document.querySelector(".progress-bar");
+        const progress = document.querySelector(".progress");
+
+        progress.style.width = "0%";
+        progressBar.style.display = "block";
+
+        setTimeout(() => {
+                progress.style.width = "100%";
+            }, 10);
+
+            setTimeout(() => {
+                progressBar.style.display = "none";
+            }, 10000);
     }
 </script>
 
