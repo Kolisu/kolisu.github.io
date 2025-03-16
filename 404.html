@@ -528,17 +528,6 @@ document.getElementById("download-button").addEventListener("click", function() 
         window.location.href = decodedUrl; // Перенаправление
         const progressBar = document.querySelector(".progress-bar");
         const progress = document.querySelector(".progress");
-
-        progress.style.width = "0%";
-        progressBar.style.display = "block";
-
-        setTimeout(() => {
-                progress.style.width = "100%";
-            }, 10);
-
-            setTimeout(() => {
-                progressBar.style.display = "none";
-            }, 10000);
     }
 </script>
 
